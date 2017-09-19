@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brewer: MyString
+  type: 
+  description: MyString
+
+two:
+  name: MyString
+  brewer: MyString
+  type: 
+  description: MyString
