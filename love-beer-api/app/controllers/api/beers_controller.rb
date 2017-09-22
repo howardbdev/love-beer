@@ -1,6 +1,6 @@
 class API::BeersController < ApplicationController
   def index
-    render json: {welcome: "beers_index"}
+    render json: Beer.all
   end
 
   def show
