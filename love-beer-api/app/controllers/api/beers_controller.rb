@@ -4,7 +4,8 @@ class API::BeersController < ApplicationController
   end
 
   def show
-
+    beer = Beer.where("id = #{params[:id]}")
+    render json: beer
   end
 
   def create
