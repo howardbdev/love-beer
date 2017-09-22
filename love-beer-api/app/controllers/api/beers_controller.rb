@@ -9,6 +9,13 @@ class API::BeersController < ApplicationController
   end
 
   def create
+    beer = Beer.new(beer_params)
+    
+    if beer.save
+      render json: beer
+    else
+      render json: {error: "There was a problem saving your beer " + beer.errors.full_messages.to_sentence}
+    end
 
   end
 
