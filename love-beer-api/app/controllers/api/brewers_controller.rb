@@ -6,7 +6,7 @@ class API::BrewersController < ApplicationController
   end
 
   def show
-    render json: brewer
+    render json: @brewer
   end
 
   def create
@@ -21,18 +21,18 @@ class API::BrewersController < ApplicationController
   end
 
   def update
-    if brewer.update(brewer_params)
-      render json: brewer
+    if @brewer.update(brewer_params)
+      render json: @brewer
     else
-      render json: {error: "There was a problem updating your brewer " + brewer.errors.full_messages.to_sentence}
+      render json: {error: "There was a problem updating your brewer " + @brewer.errors.full_messages.to_sentence}
     end
   end
 
   def delete
-    if brewer.delete
+    if @brewer.delete
       render json: Brewer.all
     else
-      render json: {error: "There was a problem deleting that brewer " + brewer.errors.full_messages.to_sentence}
+      render json: {error: "There was a problem deleting that brewer " + @brewer.errors.full_messages.to_sentence}
     end
   end
 
@@ -43,7 +43,7 @@ class API::BrewersController < ApplicationController
   end
 
   def get_brewer
-    brewer = Brewer.where("id = #{params[:id]}")
+    @brewer = Brewer.where("id = #{params[:id]}")
   end
 
 end

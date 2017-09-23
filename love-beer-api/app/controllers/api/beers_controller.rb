@@ -6,7 +6,7 @@ class API::BeersController < ApplicationController
   end
 
   def show
-    render json: beer
+    render json: @beer
   end
 
   def create
@@ -21,10 +21,10 @@ class API::BeersController < ApplicationController
   end
 
   def update
-    if beer.update(beer_params)
-      render json: beer
+    if @beer.update(beer_params)
+      render json: @beer
     else
-      render json: {error: "There was a problem updating your beer " + beer.errors.full_messages.to_sentence}
+      render json: {error: "There was a problem updating your beer " + @beer.errors.full_messages.to_sentence}
     end
   end
 
@@ -43,7 +43,7 @@ class API::BeersController < ApplicationController
   end
 
   def get_beer
-    beer = Beer.where("id = #{params[:id]}")
+    @beer = Beer.where("id = #{params[:id]}")
   end
 
 end
