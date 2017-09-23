@@ -1,2 +1,0 @@
-web: cd love-beer-client && npm start
-api: rails s -p 3001
