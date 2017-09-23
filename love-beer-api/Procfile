@@ -1,2 +1,2 @@
-web: cd love-beer-client && yarn start
+web: cd love-beer-client && npm start
 api: rails s -p 3001
