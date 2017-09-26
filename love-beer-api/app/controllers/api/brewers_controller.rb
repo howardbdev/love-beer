@@ -43,7 +43,7 @@ class API::BrewersController < ApplicationController
   end
 
   def get_brewer
-    @brewer = Brewer.where("id = #{params[:id]}")
+    @brewer = Brewer.find_by(id: params[:id])
   end
 
 end

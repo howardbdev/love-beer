@@ -30,7 +30,8 @@ class API::BeersController < ApplicationController
 
   def destroy
     if @beer # && @beer.delete
-      render json: {hello: "world"}
+      render json: @beer
+      # render json: {hello: "world"}
       # render json: {hello: "world"}
     else
       render json: {brown: "cow"}
@@ -45,7 +46,7 @@ class API::BeersController < ApplicationController
   end
 
   def get_beer
-    @beer = Beer.where("id = #{params[:id]}")
+    @beer = Beer.find_by(id: params[:id])
   end
 
 end

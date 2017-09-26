@@ -39,6 +39,6 @@ class API::CommentsController < ApplicationController
   end
 
   def get_comment
-    @comment = Comment.where("id = #{params[:id]}")
+    @comment = Comment.find_by(id: params[:id])
   end
 end
