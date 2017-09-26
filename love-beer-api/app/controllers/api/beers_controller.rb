@@ -28,8 +28,8 @@ class API::BeersController < ApplicationController
     end
   end
 
-  def delete
-    if beer.delete
+  def destroy
+    if beer.destroy
       render json: Beer.all
     else
       render json: {error: "There was a problem deleting that beer " + beer.errors.full_messages.to_sentence}

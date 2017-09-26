@@ -24,8 +24,8 @@ class API::CommentsController < ApplicationController
     end
   end
 
-  def delete
-    if @comment.delete
+  def destroy
+    if @comment.destroy
       render json: {comment_was: "deleted"}
     else
       render json: {error: @comment.errors.full_messages.to_sentence}
