@@ -1,5 +1,5 @@
 class API::BrewersController < ApplicationController
-  before_action :get_brewer, only: [:show, :update, :delete]
+  before_action :get_brewer, only: [:show, :update, :destroy]
 
   def index
     render json: Brewer.all
@@ -39,7 +39,7 @@ class API::BrewersController < ApplicationController
   private
 
   def brewer_params
-    params.require(:brewer).permit(:name, :location, :established, :url)
+    params.permit(:name, :location, :established, :url)
   end
 
   def get_brewer

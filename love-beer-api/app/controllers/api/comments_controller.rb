@@ -1,5 +1,5 @@
 class API::CommentsController < ApplicationController
-  before_action :get_comment, only: [:update, :delete]
+  before_action :get_comment, only: [:update, :destroy]
 
   def index
     comments = Comment.where("beer_id = #{params[:beer_id]}")
@@ -35,7 +35,7 @@ class API::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :beer_id)
+    params.permit(:content, :user_id, :beer_id)
   end
 
   def get_comment

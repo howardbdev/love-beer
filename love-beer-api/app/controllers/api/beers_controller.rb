@@ -1,5 +1,5 @@
 class API::BeersController < ApplicationController
-  before_action :get_beer, only: [:show, :update, :delete]
+  before_action :get_beer, only: [:show, :update, :destroy]
 
   def index
     render json: Beer.all
@@ -29,17 +29,19 @@ class API::BeersController < ApplicationController
   end
 
   def destroy
-    if beer.destroy
-      render json: Beer.all
+    if @beer # && @beer.delete
+      render json: {hello: "world"}
+      # render json: {hello: "world"}
     else
-      render json: {error: "There was a problem deleting that beer " + beer.errors.full_messages.to_sentence}
+      render json: {brown: "cow"}
+      # render json: {error: "There was a problem deleting that beer " + @beer.errors.full_messages.to_sentence}
     end
   end
 
   private
 
   def beer_params
-    params.require(:beer).permit(:name, :brewer_id, :style, :description, :url, :image_url, :upvotes)
+    params.permit(:name, :brewer_id, :style, :description, :url, :image_url, :upvotes)
   end
 
   def get_beer
