@@ -1,23 +1,13 @@
 import React from 'react';
 import './Beers.css';
+import BeerCard from '../components/BeerCard'
 
-const Beers = (props) => {
-
-  const beers = props.beers.map((beer, i) => {
-    return <div className="BeerCard" key={i}>
-      <h1>{beer.name}</h1>
-      <p>brewer - {beer.brewer.name}</p>
-      <p>style - {beer.style}</p>
-      <img className="beerImage" src={beer.image_url} alt="(no pic)"/>
-      <p>{beer.description}</p>
-    </div>
-  })
-
-  return(
+const Beers = (props) => (
     <div>
-      {beers}
+      {props.beers.map((beer, i) => <BeerCard beer={beer} key={i} />
+      )}
     </div>
   )
-}
+
 
 export default Beers;
