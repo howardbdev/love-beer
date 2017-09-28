@@ -1,4 +1,7 @@
 import React from 'react';
+import { createStore, applyMiddleware, combineReducers} from 'redux';
+import thunk from 'redux-thunk';
+
 
 const BeerCard = ({beer}) => {
     return <div className="BeerCard">
