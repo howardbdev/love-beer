@@ -6,6 +6,7 @@ import {
 import thunk from 'redux-thunk';
 
 
+
 const beersReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_BEERS_SUCCESS':
@@ -15,13 +16,13 @@ const beersReducer = (state = [], action) => {
   }
 }
 
-cont beers = combineReducers({
+const reducers = combineReducers({
   beers: beersReducer
 });
 const middleware = [thunk];
 
 export default createStore(
   reducers,
-  applyMiddleware(...middleware),
-  window.__REDUX_DEVTOOLS_EXTENSTION__ && window.REDUX_DEVTOOLS_EXTENSION__{}
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(...middleware)
 )
