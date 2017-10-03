@@ -10,16 +10,4 @@ const BeerCard = ({beer}) => {
     </div>
 }
 
-// BeerCard.defaultProps = {
-//   beer: {
-//     name: "some beer",
-//     style: "some style",
-//     brewer: {
-//       name: "some brewer",
-//     },
-//     image_url: "some.com",
-//     description: "that's some beer"
-//   }
-// }
-
 export default BeerCard;;

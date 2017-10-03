@@ -2,21 +2,8 @@ import React, { Component } from 'react';
 import Beers from './Beers';
 import './App.css';
 
-class App extends Component {
-  // constructor(props) {
-  //   super(props)
-  //
-  //   this.state = {
-  //     beers: []
-  //   };
-  // }
 
-    componentDidMount() {
-      fetch('http://localhost:3001/api/beers')
-        .then(response => response.json())
-        // .then(beers => this.setState({ beers }))
-        // .catch(error => console.log(error))
-    }
+class App extends Component {
 
   render() {
     console.log(this.state)

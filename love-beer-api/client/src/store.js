@@ -4,20 +4,10 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
-
-
-
-const beersReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'GET_BEERS_SUCCESS':
-      return action.beers;
-    default:
-      return state;
-  }
-}
+import beers from './reducers/beers'
 
 const reducers = combineReducers({
-  beers: beersReducer
+  beers: beers
 });
 const middleware = [thunk];
 
