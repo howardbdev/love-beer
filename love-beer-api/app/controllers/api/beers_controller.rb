@@ -10,7 +10,11 @@ class API::BeersController < ApplicationController
   end
 
   def create
-    beer = Beer.new(beer_params)
+
+    beer = Beer.where('lower(name) = ?', params[:name].downcase).first_or_create(name: params[:name])
+    brewer = Brewer.where('lower(name) = ?', params[:brewer_name].downcase).first_or_create(name: params[:brewer_name])
+    beer.brewer = brewer
+    beer.update(beer_params)
 
     if beer.save
       render json: beer
@@ -39,7 +43,7 @@ class API::BeersController < ApplicationController
   private
 
   def beer_params
-    params.permit(:name, :brewer_id, :style, :description, :url, :image_url, :upvotes)
+    params.permit(:name, :brewer_id, :style, :description, :url, :image_url, :upvotes, :brewer_name)
   end
 
   def get_beer

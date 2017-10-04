@@ -17,3 +17,19 @@ export const getBeers = () => {
       .catch(error => console.log(error))
   }
 }
+
+export const createBeer = beer => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers`, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify(beer)
+    })
+    .then(response => response.json())
+    .then(beer => console.log(beer))
+    .catch(error => console.log(error))
+
+  }
+}
