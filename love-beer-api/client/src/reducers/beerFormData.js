@@ -1,6 +1,6 @@
 const initialState = {
   name: "",
-  brewer: {},
+  brewer_name: "",
   style: "",
   image_url: "",
   description: "",

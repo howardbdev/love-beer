@@ -19,7 +19,7 @@ class BeerForm extends Component {
     this.props.createBeer(this.props.beerFormData)
   }
   render() {
-    const { name, brewer, style, description, image_url } = this.props.beerFormData;
+    const { name, brewer_name, style, description, image_url } = this.props.beerFormData;
     return (
       <div className="BeerCard BeerForm">
         Enter a new beer
@@ -38,7 +38,7 @@ class BeerForm extends Component {
             <input
               type="text"
               name="brewer_name"
-              value={brewer.name}
+              value={brewer_name}
               onChange={this.handleOnChange}
             /><br/>
           </div>
