@@ -3,7 +3,7 @@ export default (state = [], action) => {
     case 'GET_BEERS_SUCCESS':
       return action.beers;
     case 'CREATE_BEER_SUCCESS':
-      return state.concat(action.surfboard);
+      return state.concat(action.beer);
     default:
       return state;
   }

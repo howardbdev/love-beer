@@ -37,6 +37,5 @@ export const createBeer = beer => {
     .then(response => response.json())
     .then(beer => dispatch(addBeer(beer)))
     .catch(error => console.log(error))
-
   }
 }
