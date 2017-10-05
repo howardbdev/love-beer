@@ -9,8 +9,8 @@ class App extends Component {
     console.log(this.state)
     return (
       <div className="App">
-        <img src="http://images.freeimages.com/images/small-previews/9c1/pint-of-beer-1543005.jpg" className="App-logo" alt="I Love Beer - Do You?" />
-        <h2>Love Beer</h2>
+        <h1 className="title">Love Beer</h1>
+        <h3 className="title">Find, vote on, or add a beer!!!</h3>
         <Beers />
       </div>
     );

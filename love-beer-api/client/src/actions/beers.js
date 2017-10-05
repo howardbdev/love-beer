@@ -8,6 +8,13 @@ export const setBeers = beers => {
     beers,
   }
 }
+
+export const addBeer = beer => {
+  return {
+    type: 'CREATE_BEER_SUCCESS',
+    beer
+  }
+}
 // ** ASYNC ACTIONS **
 export const getBeers = () => {
   return dispatch => {
@@ -25,10 +32,10 @@ export const createBeer = beer => {
       headers: {
         "Content-Type": 'application/json'
       },
-      body: JSON.stringify(beer)
+      body: JSON.stringify({beer: beer})
     })
     .then(response => response.json())
-    .then(beer => console.log(beer))
+    .then(beer => dispatch(addBeer(beer)))
     .catch(error => console.log(error))
 
   }

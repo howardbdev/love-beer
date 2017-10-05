@@ -11,8 +11,8 @@ class API::BeersController < ApplicationController
 
   def create
 
-    beer = Beer.where('lower(name) = ?', params[:name].downcase).first_or_create(name: params[:name])
-    brewer = Brewer.where('lower(name) = ?', params[:brewer_name].downcase).first_or_create(name: params[:brewer_name])
+    beer = Beer.where('lower(name) = ?', params[:beer][:name].downcase).first_or_create(name: params[:beer][:name])
+    brewer = Brewer.where('lower(name) = ?', params[:beer][:brewer_name].downcase).first_or_create(name: params[:beer][:brewer_name])
     beer.brewer = brewer
     beer.update(beer_params)
 
