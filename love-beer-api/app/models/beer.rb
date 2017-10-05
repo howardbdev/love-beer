@@ -4,4 +4,11 @@ class Beer < ApplicationRecord
   has_many :comments
   has_many :votes
 
+  def self.find_or_new(beer_info)
+    if Beer.where('lower(name) = ? and lower(brewer_name) = ?', beer_info[:name].downcase, beer_info[:brewer_name].downcase).first
+      return Beer.new
+    else
+      return Beer.new(beer_info)
+    end
+  end
 end

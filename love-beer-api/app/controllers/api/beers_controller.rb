@@ -10,12 +10,12 @@ class API::BeersController < ApplicationController
   end
 
   def create
-    beer = Beer.new(beer_params)
+    beer = Beer.find_or_new(beer_params)
 
-    if beer.save
+    if beer && beer.save
       render json: beer
     else
-      render json: {error: "There was a problem saving your beer " + beer.errors.full_messages.to_sentence}
+      render json: {error: "There was a problem saving your beer " + beer.errors.full_messages.to_sentence}, status: 400
     end
 
   end
