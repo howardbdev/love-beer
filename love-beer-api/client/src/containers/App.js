@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="title">Love Beer</h1>
-        <h3 className="title">Find, vote on, or add a beer!!!</h3>
+        <h3 className="title">Vote or add a beer!!!</h3>
         <Beers />
       </div>
     );
