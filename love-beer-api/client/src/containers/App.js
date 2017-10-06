@@ -4,20 +4,26 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
 } from 'react-router-dom'
-
+import Navbar, { Home, About, Login, Search } from '../components/Navbar';
 
 class App extends Component {
 
   render() {
     console.log(this.state)
     return (
-      <div className="App">
-        <h1 className="title">Love Beer</h1>
-        <h3 className="title">Vote or add a beer!!!</h3>
-        <Beers />
-      </div>
+      <Router>
+        <div className="App">
+          <h1 className="title">Love Beer</h1>
+          <Navbar/>
+          <Route exact path="/" render={Home} />
+          <Route exact path="/about" render={About} />
+          <Route exact path="/search" render={Search} />
+          <Route exact path="/login" render={Login} />
+          <Beers />
+        </div>
+      </Router>
     );
   }
 }

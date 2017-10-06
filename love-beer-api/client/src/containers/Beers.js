@@ -12,9 +12,8 @@ class Beers extends Component {
   render() {
     return (
       <div>
-        {this.props.beers.map((beer, index) => <BeerCard beer={beer} key={index} />
-        )}
         <BeerForm/>
+        {this.props.beers.map((beer, index) => <BeerCard beer={beer} key={index} />)}
       </div>
     );
   }

@@ -27,3 +27,12 @@
   color: white;
   font-family: cursive;
 }
+
+.login-button {
+  background: blue;
+  color: white;
+}
+
+.about {
+  color: white;
+}
