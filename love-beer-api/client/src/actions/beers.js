@@ -35,7 +35,10 @@ export const createBeer = beer => {
       body: JSON.stringify({beer: beer})
     })
     .then(response => response.json())
-    .then(beer => dispatch(addBeer(beer)))
-    .catch(error => console.log(error))
+    .then(beer => {
+       if (beer.error) { alert(beer.error) }
+       else { dispatch(addBeer(beer)) }
+     })
+    .catch(error => alert(error))
   }
 }

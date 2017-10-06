@@ -14,8 +14,10 @@ class API::BeersController < ApplicationController
 
     if beer && beer.save
       render json: beer
+    elsif !beer
+      render json: {error: "that beer already exists"}
     else
-      render json: {error: "There was a problem saving your beer " + beer.errors.full_messages.to_sentence}, status: 400
+      render json: {error: "There was a problem saving your beer " + beer.errors.full_messages.to_sentence}, status: :unprocessable_entity
     end
 
   end
