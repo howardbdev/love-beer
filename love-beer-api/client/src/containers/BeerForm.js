@@ -62,7 +62,7 @@ class BeerForm extends Component {
           </div>
           <div>
             <label htmlFor="description">Description: </label>
-            <input
+            <textarea
               type="text"
               name="description"
               value={description}
