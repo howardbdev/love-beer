@@ -1,4 +1,5 @@
 import React from 'react';
+import VoteForm from './VoteForm'
 
 const BeerCard = ({beer}) => {
     return <div className="BeerCard">
@@ -7,6 +8,7 @@ const BeerCard = ({beer}) => {
       <p>style - {beer.style}</p>
       <img className="beerImage" src={beer.image_url} alt="(no pic)"/>
       <p>{beer.description}</p>
+      <VoteForm/>
     </div>
 }
 

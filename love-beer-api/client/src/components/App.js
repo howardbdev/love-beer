@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Beers from '../containers/Beers';
 import './App.css';
 import {
