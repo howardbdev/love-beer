@@ -1,6 +1,8 @@
 .beerImage {
   width: 45%;
   height: 65%;
+  max-height: 250px;
+  max-width: 165px;
 }
 
 .BeerCard {
@@ -21,6 +23,6 @@ body {
   background-image: url(https://images7.alphacoders.com/288/thumb-1920-288712.jpg)
 }
 
-input {
+input, textarea {
   padding: 5px;
 }
