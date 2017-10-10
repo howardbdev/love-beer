@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { upvoteBeer, downvoteBeer } from '../actions/beers'
+import { upvoteBeer, downvoteBeer } from '../actions/beers';
+import { bindActionCreators } from 'redux';
 
-const VoteForm = () => {
+class VoteForm extends Component {
 
-  const handleUpvote = (event) => {
-    event.preventDefault();
-    console.log(event.target)
-    console.log("you are in the handleUpvote function", console.log(event.target))
-    console.log("this is ", this)
-    debugger
+  handleUpvote = (event) => {
+    console.log("this.props is: ", this.props)
+      event.preventDefault();
+      this.props.upvoteBeer(this.props.beer_id);
+    }
+  handleDownvote = (event) => {
+    console.log("this.props is: ", this.props)
+      event.preventDefault();
+      this.props.downvoteBeer(this.props.beer_id);
+    }
+
+  render() {
+    return (
+      <div>
+        <form className="upvote-form" onSubmit={this.handleUpvote}>
+          <button type="submit">Upvote +</button>
+        </form>
+        <form className="downvote-form" onSubmit={this.handleDownvote}>
+          <button type="submit">Downvote -</button>
+        </form>
+        <p>Vote total: </p>
+      </div>
+    );
   }
-  const handleDownvote = (event) => {
-    event.preventDefault();
-    console.log(event.target)
-    console.log("you are in the handleDownvote function", console.log(event.target))
-    console.log("this is ", this)
-  }
-  return (
-    <div>
-      <form className="upvote-form" onSubmit={handleUpvote}>
-        <button type="submit">Upvote +</button>
-      </form>
-      <form className="downvote-form" onSubmit={handleDownvote}>
-        <button type="submit">Downvote -</button>
-      </form>
-      <p>Vote total: </p>
-    </div>
-  );
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+      upvoteBeer: upvoteBeer,
+      downvoteBeer: downvoteBeer
+    }, dispatch)
 }
 
 export default connect(null, {upvoteBeer, downvoteBeer})(VoteForm);

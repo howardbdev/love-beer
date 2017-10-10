@@ -11,5 +11,9 @@ class Beer < ApplicationRecord
       return Beer.new(beer_info)
     end
   end
-  
+
+  def vote_count
+    self.upvotes < 0 ? 0 : self.upvotes
+  end
+
 end

@@ -8,7 +8,8 @@ const BeerCard = ({beer}) => {
       <p>style - {beer.style}</p>
       <img className="beerImage" src={beer.image_url} alt="(no pic)"/>
       <p>{beer.description}</p>
-      <VoteForm/>
+      <p>Votes: {beer.upvotes}</p>
+      <VoteForm beer_id={beer.id}/>
     </div>
 }
 

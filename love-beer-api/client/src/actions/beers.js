@@ -16,17 +16,17 @@ export const addBeer = beer => {
   }
 }
 
-export const upvoteBeer = beer => {
+export const upvoteBeer = beer_id => {
   return {
     type: 'UPVOTE_BEER',
-    beer
+    beer_id: beer_id
   }
 }
 
-export const downvoteBeer = beer => {
+export const downvoteBeer = beer_id => {
   return {
     type: 'DOWNVOTE_BEER',
-    beer
+    beer_id: beer_id
   }
 }
 
