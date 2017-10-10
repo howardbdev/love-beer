@@ -15,6 +15,21 @@ export const addBeer = beer => {
     beer
   }
 }
+
+export const upvoteBeer = beer => {
+  return {
+    type: 'UPVOTE_BEER',
+    beer
+  }
+}
+
+export const downvoteBeer = beer => {
+  return {
+    type: 'DOWNVOTE_BEER',
+    beer
+  }
+}
+
 // ** ASYNC ACTIONS **
 export const getBeers = () => {
   return dispatch => {
