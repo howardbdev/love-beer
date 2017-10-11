@@ -16,7 +16,7 @@ const activeLink = {
 }
 
 const Navbar = () =>
-  <div>
+  <div className="navbar">
     <NavLink
       to="/"
       exact
@@ -35,6 +35,18 @@ const Navbar = () =>
       style={link}
       activeStyle={activeLink}
     >Search</NavLink>
+    <NavLink
+      to="/beers/"
+      exact
+      style={link}
+      activeStyle={activeLink}
+    >All Beers</NavLink>
+    <NavLink
+      to="/beers/new"
+      exact
+      style={link}
+      activeStyle={activeLink}
+    >New Beer</NavLink>
     <NavLink
       to="/login"
       exact

@@ -136,6 +136,7 @@ body {
   border: 2px;
   border-style: solid;
   border-color: white;
+  margin-bottom: 0;
 }
 
 .BeerCard input.create-beer-button {
@@ -147,6 +148,7 @@ body {
   border: 2px;
   border-style: solid;
   border-color: brown;
+  margin-bottom: 0;
 }
 
 .required-fields-p {
@@ -164,4 +166,9 @@ body {
   margin-top: 2px;
   max-width: 90%;
   min-height: 80px;
+}
+
+.beer-description {
+  color: brown;
+  font-style: italic;
 }

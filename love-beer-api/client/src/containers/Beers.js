@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { getBeers } from '../actions/beers'
 import './Beers.css';
 import BeerCard from '../components/BeerCard'
-import BeerForm from './BeerForm'
 
 class Beers extends Component {
   componentDidMount() {
@@ -12,7 +11,6 @@ class Beers extends Component {
   render() {
     return (
       <div>
-        <BeerForm/>
         {this.props.beers.map((beer) => <BeerCard beer={beer} key={beer.id} />)}
       </div>
     );
