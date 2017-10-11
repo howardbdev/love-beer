@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { upvoteBeer, downvoteBeer } from '../actions/beers';
-import { bindActionCreators } from 'redux';
 
 class VoteForm extends Component {
 
@@ -18,12 +17,12 @@ class VoteForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="vote-form">
         <form className="upvote-form" onSubmit={this.handleUpvote}>
-          <button type="submit">Upvote +</button>
+          <button className="vote-button upvote-button" type="submit">Upvote ++</button>
         </form>
         <form className="downvote-form" onSubmit={this.handleDownvote}>
-          <button type="submit">Downvote -</button>
+          <button className="vote-button downvote-button" type="submit">Downvote --</button>
         </form>
       </div>
     );

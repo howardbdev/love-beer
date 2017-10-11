@@ -1,53 +1,45 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-/* Add basic styling for NavLinks */
 const link = {
   width: '100px',
   padding: '12px',
   margin: '0 6px 6px',
-  background: 'blue',
+  background: 'rgb(223, 62, 19)',
   textDecoration: 'none',
   color: 'white',
 }
 
-/* add the navbar component */
+const activeLink = {
+  background: 'rgb(234, 211, 189)',
+  color: "black",
+}
+
 const Navbar = () =>
   <div>
     <NavLink
       to="/"
-      /* set exact so it knows only to only set activeStyle when route is deeply equal to link */
       exact
-      /* add styling to Navlink */
       style={link}
-      /* add prop for activeStyle */
-      activeStyle={{
-        background: 'darkblue'
-      }}
+      activeStyle={activeLink}
     >Home</NavLink>
     <NavLink
       to="/about"
       exact
       style={link}
-      activeStyle={{
-        background: 'darkblue'
-      }}
+      activeStyle={activeLink}
     >About</NavLink>
     <NavLink
       to="/search"
       exact
       style={link}
-      activeStyle={{
-        background: 'darkblue'
-      }}
+      activeStyle={activeLink}
     >Search</NavLink>
     <NavLink
       to="/login"
       exact
       style={link}
-      activeStyle={{
-        background: 'darkblue'
-      }}
+      activeStyle={activeLink}
     >Login</NavLink>
   </div>;
 
@@ -96,7 +88,3 @@ export const Search = () =>
   </form>;
 
   export default Navbar;
-
-  // <label htmlFor="username">Username</label>
-  //
-  // <label htmlFor="password">Password</label>

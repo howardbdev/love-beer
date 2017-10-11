@@ -1,5 +1,6 @@
 import React from 'react';
 import VoteForm from './VoteForm'
+import CommentForm from '../containers/CommentForm'
 
 const BeerCard = ({beer}) => {
     return <div className="BeerCard">
@@ -10,6 +11,7 @@ const BeerCard = ({beer}) => {
       <p>{beer.description}</p>
       <p>Votes: {beer.upvotes}</p>
       <VoteForm beer_id={beer.id}/>
+      <CommentForm beer_id={beer.id}/>
     </div>
 }
 

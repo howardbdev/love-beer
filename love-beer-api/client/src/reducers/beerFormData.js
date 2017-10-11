@@ -4,6 +4,7 @@ const initialState = {
   style: "",
   image_url: "",
   description: "",
+  upvotes: 0,
 }
 
 export default (state = initialState , action) => {
