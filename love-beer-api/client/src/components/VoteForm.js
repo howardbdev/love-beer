@@ -30,11 +30,4 @@ class VoteForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-      upvoteBeer: upvoteBeer,
-      downvoteBeer: downvoteBeer
-    }, dispatch)
-}
-
 export default connect(null, {upvoteBeer, downvoteBeer})(VoteForm);

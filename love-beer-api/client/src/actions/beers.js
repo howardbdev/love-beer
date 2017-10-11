@@ -75,6 +75,7 @@ export const upvoteBeer = beer_id => {
     .catch(error => alert(error))
   }
 }
+
 export const downvoteBeer = beer_id => {
   return dispatch => {
     return fetch(`${API_URL}/beers/${beer_id}`, {
