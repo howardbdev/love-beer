@@ -4,8 +4,6 @@ export default (state = [], action) => {
   switch (action.type) {
     case 'GET_BEERS_SUCCESS':
       return action.beers;
-    case 'GET_BEER_SUCCESS':
-      return action.beer;
     case 'CREATE_BEER_SUCCESS':
       return state.concat(action.beer);
     case 'UPVOTE_BEER':

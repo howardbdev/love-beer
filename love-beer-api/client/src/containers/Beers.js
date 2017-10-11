@@ -9,6 +9,7 @@ class Beers extends Component {
     this.props.getBeers()
   }
   render() {
+    console.log("BEERS.JS, this.props.beers ->", this.props.beers)
     return (
       <div>
         {this.props.beers.map((beer) => <BeerCard beer={beer} key={beer.id} />)}

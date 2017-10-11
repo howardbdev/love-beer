@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 
 const BeerCard = ({beer}) => {
-    const url =`/beers/${beer.id}`
+    const url =`/beer/${beer.id}`
     return <div className="BeerCard">
       <NavLink
         to={url}

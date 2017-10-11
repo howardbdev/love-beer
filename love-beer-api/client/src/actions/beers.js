@@ -9,17 +9,10 @@ export const setBeers = beers => {
   }
 }
 
-export const setBeer = beer => {
-  return {
-    type: 'GET_BEER_SUCCESS',
-    beer,
-  }
-}
-
 export const addBeer = beer => {
   return {
     type: 'CREATE_BEER_SUCCESS',
-    beer
+    beers: beer
   }
 }
 
@@ -43,15 +36,6 @@ export const getBeers = () => {
     return fetch(`${API_URL}/beers`)
       .then(response => response.json())
       .then(beers => dispatch(setBeers(beers)))
-      .catch(error => console.log(error))
-  }
-}
-
-export const getBeer = (beer_id) => {
-  return dispatch => {
-    return fetch(`${API_URL}/beers/${beer_id}`)
-      .then(response => response.json())
-      .then(beer => dispatch(setBeer(beer)))
       .catch(error => console.log(error))
   }
 }

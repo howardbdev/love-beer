@@ -1,5 +1,6 @@
 import React from 'react';
 import Beers from '../containers/Beers';
+import Beer from '../containers/Beer';
 import BeerForm from '../containers/BeerForm';
 import './App.css';
 import {
@@ -18,11 +19,10 @@ const App = () => {
         <Navbar className="navbar"/>
         <Route exact path="/" render={Home} />
         <Route exact path="/about" render={About} />
-        <Route exact path="/search" render={Search} />
         <Route exact path="/login" render={Login} />
         <Route exact path="/beers/new" component={BeerForm}/>
         <Route exact path="/beers" component={Beers}/>
-        <Route exact path="/beers/:id" render={BeerShow} />
+        <Route path="/beer/:id" component={Beer} />
       </div>
     </Router>
   );

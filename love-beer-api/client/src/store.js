@@ -6,10 +6,12 @@ import {
 import thunk from 'redux-thunk';
 import beers from './reducers/beers';
 import beerFormData from './reducers/beerFormData';
+import beer from './reducers/beer';
 
 const reducers = combineReducers({
   beers,
   beerFormData,
+  beer,
 });
 const middleware = [thunk];
 

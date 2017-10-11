@@ -35,7 +35,6 @@
   border-color: brown;
   border-radius: 5px;
   padding: 5px;
-  margin-bottom: 10%;
   max-width: 90%;
 }
 
@@ -171,4 +170,11 @@ body {
 .beer-description {
   color: brown;
   font-style: italic;
+}
+
+#BeerForm {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    float:none;
 }

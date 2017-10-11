@@ -21,7 +21,7 @@ class BeerForm extends Component {
   render() {
     const { name, brewer_name, style, description, image_url } = this.props.beerFormData;
     return (
-      <div className="BeerCard BeerForm">
+      <div id="BeerForm" className="BeerCard BeerForm">
         <h2>Add a Beer!</h2>
         <form action="" onSubmit={this.handleOnSubmit}>
           <div>

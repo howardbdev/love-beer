@@ -30,12 +30,6 @@ const Navbar = () =>
       activeStyle={activeLink}
     >About</NavLink>
     <NavLink
-      to="/search"
-      exact
-      style={link}
-      activeStyle={activeLink}
-    >Search</NavLink>
-    <NavLink
       to="/beers/"
       exact
       style={link}
@@ -86,17 +80,5 @@ export const Login = () =>
     <input className="login-button" type="submit" value="Join the party!" />
   </form>;
 
-export const Search = () =>
-  <form>
-    <h4 className="title" >Search</h4>
-    <h5 className="title">Search for a beer by name and brewer.  Capitalization does not matter, but spelling does!</h5>
-    <div>
-      <input type="text" name="beer_name" placeholder="Beer Name" />
-    </div>
-    <div>
-      <input type="text" name="brewer_name" placeholder="Brewer Name" />
-    </div>
-    <input className="login-button" type="submit" value="Search" />
-  </form>;
 
   export default Navbar;
