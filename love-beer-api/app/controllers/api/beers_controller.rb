@@ -23,7 +23,14 @@ class API::BeersController < ApplicationController
   end
 
   def update
-    if @beer.update(beer_params)
+    bp = beer_params
+    if bp[:upvotes]
+      vote = bp[:upvotes] > 0 ? 1 : -1
+      bp[:upvotes] = @beer.upvotes + vote
+    end
+
+    if @beer.update(bp)
+      puts "upvotes " + @beer.upvotes.to_s
       render json: @beer
     else
       render json: {error: "There was a problem updating your beer " + @beer.errors.full_messages.to_sentence}

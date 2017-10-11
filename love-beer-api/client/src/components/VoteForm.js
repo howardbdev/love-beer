@@ -25,7 +25,6 @@ class VoteForm extends Component {
         <form className="downvote-form" onSubmit={this.handleDownvote}>
           <button type="submit">Downvote -</button>
         </form>
-        <p>Vote total: </p>
       </div>
     );
   }

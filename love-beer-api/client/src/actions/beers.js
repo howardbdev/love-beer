@@ -16,14 +16,14 @@ export const addBeer = beer => {
   }
 }
 
-export const upvoteBeer = beer_id => {
+export const upvoteBeerClientSide = beer_id => {
   return {
     type: 'UPVOTE_BEER',
     beer_id: beer_id
   }
 }
 
-export const downvoteBeer = beer_id => {
+export const downvoteBeerClientSide = beer_id => {
   return {
     type: 'DOWNVOTE_BEER',
     beer_id: beer_id
@@ -53,6 +53,41 @@ export const createBeer = beer => {
     .then(beer => {
        if (beer.error) { alert(beer.error) }
        else { dispatch(addBeer(beer)) }
+     })
+    .catch(error => alert(error))
+  }
+}
+
+export const upvoteBeer = beer_id => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${beer_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({beer: {upvotes: 1}})
+    })
+    .then(response => response.json())
+    .then(beer => {
+       if (beer.error) { alert(beer.error) }
+       else { dispatch(upvoteBeerClientSide(beer.id)) }
+     })
+    .catch(error => alert(error))
+  }
+}
+export const downvoteBeer = beer_id => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${beer_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({beer: {upvotes: -1}})
+    })
+    .then(response => response.json())
+    .then(beer => {
+       if (beer.error) { alert(beer.error) }
+       else { dispatch(downvoteBeerClientSide(beer.id)) }
      })
     .catch(error => alert(error))
   }
