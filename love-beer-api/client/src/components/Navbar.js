@@ -15,7 +15,7 @@ const activeLink = {
   color: "black",
 }
 
-const Navbar = () =>
+let Navbar = () =>
   <div className="navbar">
     <NavLink
       to="/"
@@ -25,7 +25,7 @@ const Navbar = () =>
     >Home</NavLink>
     <NavLink
       to="/about"
-      exact
+      exac
       style={link}
       activeStyle={activeLink}
     >About</NavLink>
@@ -80,5 +80,4 @@ export const Login = () =>
     <input className="login-button" type="submit" value="Join the party!" />
   </form>;
 
-
-  export default Navbar;
+export default Navbar;
