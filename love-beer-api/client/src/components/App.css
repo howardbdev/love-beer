@@ -28,9 +28,41 @@
   font-family: cursive;
 }
 
+.login {
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(223, 62, 19);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 1%;
+  height: 20px;
+  width: 180px;
+}
+
+.login:hover {
+  border-color: yellow;
+}
+
 .login-button {
   background: rgb(234, 209, 193);
-  color: black;
+  color: brown;
+  border: 2px;
+  border-style: solid;
+  border-color: rgb(223, 62, 19);
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+}
+
+.login-button:hover {
+  background: rgb(223, 62, 19);
+  color: white;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
 }
 
 .about {

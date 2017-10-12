@@ -72,10 +72,10 @@ export const Login = () =>
     <h4 className="title" >Login</h4>
     <h5 className="title">Log in to vote!</h5>
     <div>
-      <input type="text" name="username" placeholder="Username" />
+      <input className="login" type="text" name="username" placeholder="Username" />
     </div>
     <div>
-      <input type="password" name="password" placeholder="Password" />
+      <input className="login" type="password" name="password" placeholder="Password" />
     </div>
     <input className="login-button" type="submit" value="Join the party!" />
   </form>;

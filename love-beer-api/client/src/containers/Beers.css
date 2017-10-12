@@ -19,6 +19,12 @@
   border-radius: 25px;
 }
 
+.BeerCard.Show {
+  width: 90%;
+  margin: auto;
+  float: none;
+}
+
 .BeerCard input, .BeerCard textarea {
   border: 2px;
   border-style: solid;
