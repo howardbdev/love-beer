@@ -1,6 +1,5 @@
 import React from 'react'
 import VoteForm from './VoteForm'
-import { getBeer } from '../actions/beer'
 
 const BeerShow = ({beer}) => {
   console.log("BeerShow beer is ", {beer})

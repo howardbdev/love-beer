@@ -12,7 +12,10 @@ class Beers extends Component {
     console.log("BEERS.JS, this.props.beers ->", this.props.beers)
     return (
       <div>
-        {this.props.beers.map((beer) => <BeerCard beer={beer} key={beer.id} />)}
+        {this.props.beers.map((beer, index) => <BeerCard
+          beer={beer}
+          key={index}
+        />)}
       </div>
     );
   }

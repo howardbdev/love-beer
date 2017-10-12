@@ -10,9 +10,10 @@ export const setBeers = beers => {
 }
 
 export const addBeer = beer => {
+  console.log("addBeer action beer is ", beer)
   return {
     type: 'CREATE_BEER_SUCCESS',
-    beers: beer
+    beer
   }
 }
 
@@ -52,7 +53,7 @@ export const createBeer = beer => {
     .then(response => response.json())
     .then(beer => {
        if (beer.error) { alert(beer.error) }
-       else { dispatch(addBeer(beer)) }
+       else dispatch(addBeer(beer))
      })
     .catch(error => alert(error))
   }
@@ -91,5 +92,27 @@ export const downvoteBeer = beer_id => {
        else { dispatch(downvoteBeerClientSide(beer.id)) }
      })
     .catch(error => alert(error))
+  }
+}
+
+// ** ACTION CREATORS **
+
+export const setBeer = beer => {
+  return {
+    type: 'GET_BEER_SUCCESS',
+    beer,
+  }
+}
+
+// ** ASYNC ACTIONS **
+
+export const getBeer = (beer_id) => {
+  console.log('IN GETBEER ACTION')
+  console.log("URL is ", `${API_URL}/beers/${beer_id}` )
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${beer_id}`)
+      .then(response => response.json())
+      .then(beer => dispatch(setBeer(beer)))
+      .catch(error => console.log(error))
   }
 }

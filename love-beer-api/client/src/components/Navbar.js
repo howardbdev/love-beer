@@ -25,7 +25,7 @@ let Navbar = () =>
     >Home</NavLink>
     <NavLink
       to="/about"
-      exac
+      exact
       style={link}
       activeStyle={activeLink}
     >About</NavLink>
@@ -41,12 +41,7 @@ let Navbar = () =>
       style={link}
       activeStyle={activeLink}
     >New Beer</NavLink>
-    <NavLink
-      to="/login"
-      exact
-      style={link}
-      activeStyle={activeLink}
-    >Login</NavLink>
+
   </div>;
 
 export const Home = () => {
@@ -81,3 +76,10 @@ export const Login = () =>
   </form>;
 
 export default Navbar;
+
+{/* <NavLink
+  to="/login"
+  exact
+  style={link}
+  activeStyle={activeLink}
+>Login</NavLink> */}

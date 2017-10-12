@@ -6,10 +6,9 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  Switch,
 } from 'react-router-dom'
-import Navbar, { Home, About, Login, Search } from '../components/Navbar';
-import BeerShow from './BeerShow'
+import Navbar, { Home, About, Login } from '../components/Navbar';
 
 const App = () => {
   return (
@@ -17,12 +16,14 @@ const App = () => {
       <div className="App">
         <h1 className="title">Love Beer</h1>
         <Navbar className="navbar"/>
-        <Route exact path="/" render={Home} />
-        <Route exact path="/about" render={About} />
-        <Route exact path="/login" render={Login} />
-        <Route exact path="/beers/new" component={BeerForm}/>
-        <Route exact path="/beers" component={Beers}/>
-        <Route path="/beer/:id" component={Beer} />
+        <Switch>
+          <Route exact path="/" render={Home} />
+          <Route exact path="/about" render={About} />
+          <Route exact path="/login" render={Login} />
+          <Route exact path="/beers/new" component={BeerForm}/>
+          <Route exact path="/beers" component={Beers}/>
+          <Route path="/beers/:id" component={Beer} />
+        </Switch>
       </div>
     </Router>
   );
