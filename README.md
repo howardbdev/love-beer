@@ -15,7 +15,7 @@ Please open `love-beer-api` in the filetree to get to the real deal!  Run all co
   New to the app is a JSON API backend.  API endpoints render JSON.  Beers are all available on the API, indexed or individual show.  For example, to view the beers index, click on `All Beers`.
 
 # Contributing
-  Contributions are welcome - suggestions, bug reports, additions, and edits! https://github.com/howardbdev/rails-project-manager or email me at howarddevennish@gmail.com
+  Contributions are welcome - suggestions, bug reports, additions, and edits! https://github.com/howardbdev/love-beer or email me at howarddevennish@gmail.com
 
 # License
 
