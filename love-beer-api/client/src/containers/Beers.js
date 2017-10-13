@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getBeers } from '../actions/beers'
-import './Beers.css';
+import '../css/Beers.css';
 import BeerCard from '../components/BeerCard'
 
 class Beers extends Component {

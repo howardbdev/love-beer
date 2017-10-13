@@ -2,7 +2,7 @@ import React from 'react';
 import Beers from '../containers/Beers';
 import Beer from '../containers/Beer';
 import BeerForm from '../containers/BeerForm';
-import './App.css';
+import '../css/App.css';
 import {
   BrowserRouter as Router,
   Route,
