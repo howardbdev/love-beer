@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateCommentFormData } from '../actions/commentForm';
-import { createComment } from '../actions/comments'
+import { createComment } from '../actions/comments';
 
 class CommentForm extends Component {
   handleOnChange = event => {
     const { name, value } = event.target;
+    console.log('event.target is ', event.target)
     console.log(name)
     const currentCommentFormData = Object.assign({}, this.props.commentFormData, {
         [name]: value
     })
-    this.props.commentFormData(currentCommentFormData)
+    console.log('currentCommentFormData is ',currentCommentFormData)
+    this.props.updateCommentFormData(currentCommentFormData)
   }
 
   handleOnSubmit = event => {
@@ -23,13 +25,22 @@ class CommentForm extends Component {
     // }, 1000)
   }
   render() {
+    const { content } = this.props.commentFormData;
     return(
       <div>
         <p>Comment on this beer:</p>
         <form className="comment-form">
           <div>
-            <textarea name="beer-comment-textarea" id={this.props.beer_id}></textarea>
+            <label htmlFor="description">Comment: </label>
+            <textarea
+              type="text"
+              name="content"
+              value={content}
+              id={this.props.beer_id}
+              onChange={this.handleOnChange}
+            />
           </div>
+
           <div>
             <input type="submit" className="submit-comment-button" value="Submit Comment"/>
           </div>
@@ -48,3 +59,6 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, {updateCommentFormData, createComment})(CommentForm);
+
+
+// name="beer-comment-textarea"
