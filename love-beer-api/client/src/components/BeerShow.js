@@ -1,5 +1,6 @@
 import React from 'react'
 import VoteForm from './VoteForm'
+import CommentForm from '../containers/CommentForm'
 
 const BeerShow = ({beer}) => {
   console.log("BeerShow beer is ", {beer})
@@ -11,6 +12,7 @@ const BeerShow = ({beer}) => {
       <p className="beer-description">{beer.description}</p>
       <p>Votes: {beer.upvotes}</p>
       <VoteForm beer_id={beer.id}/>
+      <CommentForm beer_id={beer.id}/>
     </div>
 }
 export default BeerShow;

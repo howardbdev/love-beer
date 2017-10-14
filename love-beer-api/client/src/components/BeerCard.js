@@ -17,7 +17,6 @@ const BeerCard = (props) => {
       <p className="beer-description">{props.beer.description}</p>
       <p>Votes: {props.beer.upvotes}</p>
       <VoteForm beer_id={props.beer.id}/>
-      <CommentForm beer_id={props.beer.id}/>
     </div>
 }
 

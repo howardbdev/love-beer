@@ -17,7 +17,9 @@ class CommentForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createComment(this.props.commentFormData)
+    // this.props.createComment(this.props.commentFormData)
+    console.log("in CommentForm submit function, this.props.beer_id is ", this.props.beer_id)
+    console.log("comment from submit fn, this.props is ", this.props)
     // setTimeout(()=>{
     //   if (l < this.props.beers.length) {
     //     this.props.history.push('/beers/' + `${this.props.beers[this.props.beers.length-1].id}`)
@@ -29,9 +31,11 @@ class CommentForm extends Component {
     return(
       <div>
         <p>Comment on this beer:</p>
-        <form className="comment-form">
+        <form
+          className="comment-form"
+          onSubmit={this.handleOnSubmit}
+        >
           <div>
-            <label htmlFor="description">Comment: </label>
             <textarea
               type="text"
               name="content"
@@ -42,7 +46,11 @@ class CommentForm extends Component {
           </div>
 
           <div>
-            <input type="submit" className="submit-comment-button" value="Submit Comment"/>
+            <input
+              type="submit"
+              className="submit-comment-button"
+              value="Submit Comment"
+            />
           </div>
         </form>
       </div>

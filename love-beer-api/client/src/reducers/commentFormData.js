@@ -4,7 +4,7 @@ const initialState = {
 
 export default (state = initialState , action) => {
   switch (action.type) {
-    case 'UPDATED_CONTENT_DATA':
+    case 'UPDATED_COMMENT_DATA':
       return action.commentFormData;
     default:
       return initialState;
