@@ -13,8 +13,9 @@ export const addComment = comment => {
 // ** ASYNC ACTIONS **
 
 export const createComment = comment => {
+  console.log('in comments.js createComment COMMENT ARG IS ', comment)
   return dispatch => {
-    return fetch(`${API_URL}/comments`, {
+    return fetch(`${API_URL}/beers/${comment.beer_id}/comments`, {
       method: "POST",
       headers: {
         "Content-Type": 'application/json'

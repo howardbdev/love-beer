@@ -9,7 +9,8 @@ class CommentForm extends Component {
     console.log('event.target is ', event.target)
     console.log(name)
     const currentCommentFormData = Object.assign({}, this.props.commentFormData, {
-        [name]: value
+        [name]: value,
+        beer_id: this.props.beer_id
     })
     console.log('currentCommentFormData is ',currentCommentFormData)
     this.props.updateCommentFormData(currentCommentFormData)
@@ -17,7 +18,7 @@ class CommentForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    // this.props.createComment(this.props.commentFormData)
+    this.props.createComment(this.props.commentFormData)
     console.log("in CommentForm submit function, this.props.beer_id is ", this.props.beer_id)
     console.log("comment from submit fn, this.props is ", this.props)
     // setTimeout(()=>{
