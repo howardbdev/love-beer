@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  has_many :comments
+  # has_many :comments
   # probably_loves :beer
 end

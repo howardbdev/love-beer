@@ -9,6 +9,7 @@ class Beers extends Component {
     this.props.getBeers()
   }
   render() {
+    console.log(this.props.beers, "<-THOSE")
     console.log("BEERS.JS, this.props.beers ->", this.props.beers)
     return (
       <div>

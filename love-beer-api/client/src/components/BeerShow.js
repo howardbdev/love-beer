@@ -1,6 +1,7 @@
 import React from 'react'
 import VoteForm from './VoteForm'
 import CommentForm from '../containers/CommentForm'
+import Comments from './Comments'
 
 const BeerShow = ({beer}) => {
   console.log("BeerShow beer is ", {beer})
@@ -13,6 +14,7 @@ const BeerShow = ({beer}) => {
       <p>Votes: {beer.upvotes}</p>
       <VoteForm beer_id={beer.id}/>
       <CommentForm beer_id={beer.id}/>
+      <Comments comments={beer.comments}/>
     </div>
 }
 export default BeerShow;
