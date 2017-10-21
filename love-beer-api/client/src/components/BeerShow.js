@@ -1,10 +1,15 @@
 import React from 'react'
 import VoteForm from './VoteForm'
 import CommentForm from '../containers/CommentForm'
-import Comments from './Comments'
+import CommentCard from './CommentCard'
 
 const BeerShow = ({beer}) => {
-  console.log("BeerShow beer is ", {beer})
+  let comments = [];
+  if (beer.length !== 0) {
+    console.log('HOW MANY', beer)
+    comments = beer.comments.map(comment=><CommentCard content={comment.content} key={comment.id}/>)
+  }
+  console.log("BeerShow beer is ", beer.length, "comments", comments)
     return <div className="BeerCard Show">
       <h1>{beer.name}</h1>
       <p>Brewer - <strong>{beer.brewer_name}</strong></p>
@@ -14,7 +19,8 @@ const BeerShow = ({beer}) => {
       <p>Votes: {beer.upvotes}</p>
       <VoteForm beer_id={beer.id}/>
       <CommentForm beer_id={beer.id}/>
-      <Comments comments={beer.comments}/>
+      <h4>Comments</h4>
+      {comments}
     </div>
 }
 export default BeerShow;

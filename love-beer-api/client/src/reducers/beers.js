@@ -3,6 +3,7 @@ export default (state = [], action) => {
   let beer;
   switch (action.type) {
     case 'GET_BEERS_SUCCESS':
+    console.log("action.beers is ", action.beers)
       return action.beers;
     case 'CREATE_BEER_SUCCESS':
       return state.concat(action.beer);

@@ -8,6 +8,7 @@ import beers from './reducers/beers';
 import beerFormData from './reducers/beerFormData';
 import commentFormData from './reducers/commentFormData';
 import beer from './reducers/beer';
+import comments from './reducers/comments';
 
 const reducers = combineReducers({
   beers,
