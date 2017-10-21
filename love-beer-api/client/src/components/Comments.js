@@ -1,16 +1,11 @@
 import React from 'react';
+// import CommentCard from './CommentCard'
 
 const Comments = (props) => {
-  console.log("PROPS.COMMENTS", props.comments)
-  const comments = props.comments
-  //TRYNA GET THIS TO WORK
-  console.log("comments iszz ", comments)
+  console.log("hello", props.comments)
   return(
-    <div className="comments">
-    </div>
+  <p>helloo</p>
   )
 }
 
 export default Comments
-
-// {comments}
