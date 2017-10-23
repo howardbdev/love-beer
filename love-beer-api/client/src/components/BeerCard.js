@@ -1,6 +1,5 @@
 import React from 'react';
 import VoteForm from './VoteForm';
-import CommentForm from '../containers/CommentForm';
 import { NavLink } from 'react-router-dom';
 
 

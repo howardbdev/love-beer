@@ -76,10 +76,3 @@ export const Login = () =>
   </form>;
 
 export default Navbar;
-
-{/* <NavLink
-  to="/login"
-  exact
-  style={link}
-  activeStyle={activeLink}
->Login</NavLink> */}

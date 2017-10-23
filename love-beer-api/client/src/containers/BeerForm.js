@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateBeerFormData } from '../actions/beerForm';
 import { createBeer } from '../actions/beers'
-import { withRouter } from 'react-router'
 
 class BeerForm extends Component {
 
@@ -21,7 +20,7 @@ class BeerForm extends Component {
     this.props.createBeer(this.props.beerFormData)
     setTimeout(()=>{
       if (l < this.props.beers.length) {
-        this.props.history.push('/beers/' + `${this.props.beers[this.props.beers.length-1].id}`)
+        this.props.history.push(`/beers/${this.props.beers[this.props.beers.length-1].id}`)
       }
     }, 1000)
   }

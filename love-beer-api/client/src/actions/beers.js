@@ -9,6 +9,13 @@ export const setBeers = beers => {
   }
 }
 
+export const setBeer = beer => {
+  return {
+    type: 'GET_BEER_SUCCESS',
+    beer,
+  }
+}
+
 export const addBeer = beer => {
   console.log("addBeer action beer is ", beer)
   return {
@@ -94,17 +101,6 @@ export const downvoteBeer = beer_id => {
     .catch(error => alert(error))
   }
 }
-
-// ** ACTION CREATORS **
-
-export const setBeer = beer => {
-  return {
-    type: 'GET_BEER_SUCCESS',
-    beer,
-  }
-}
-
-// ** ASYNC ACTIONS **
 
 export const getBeer = (beer_id) => {
   console.log('IN GETBEER ACTION')

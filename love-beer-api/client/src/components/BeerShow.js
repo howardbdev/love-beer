@@ -24,8 +24,3 @@ const BeerShow = ({beer}) => {
     </div>
 }
 export default BeerShow;
-
-
-{/* <div className="comments">
-  {beer.comments.map(comment => <p>{comment.content}</p>)}
-</div> */}

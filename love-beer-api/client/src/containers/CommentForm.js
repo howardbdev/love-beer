@@ -21,12 +21,8 @@ class CommentForm extends Component {
     this.props.createComment(this.props.commentFormData)
     console.log("in CommentForm submit function, this.props.beer_id is ", this.props.beer_id)
     console.log("comment from submit fn, this.props is ", this.props)
-    // setTimeout(()=>{
-    //   if (l < this.props.beers.length) {
-    //     this.props.history.push('/beers/' + `${this.props.beers[this.props.beers.length-1].id}`)
-    //   }
-    // }, 1000)
   }
+  
   render() {
     const { content } = this.props.commentFormData;
     return(
