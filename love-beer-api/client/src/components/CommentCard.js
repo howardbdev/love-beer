@@ -3,7 +3,7 @@ import React from 'react'
 const CommentCard = (props) => {
   return(
       <div className="CommentCard">
-        <p className="comment">{props.content}</p>
+        <li className="comment">{props.content}</li>
       </div>
   )
 }

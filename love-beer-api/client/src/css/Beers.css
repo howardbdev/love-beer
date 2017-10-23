@@ -23,6 +23,8 @@
   width: 90%;
   margin: auto;
   float: none;
+  padding-bottom: 20px;
+
 }
 
 .BeerCard input, .BeerCard textarea {
@@ -141,7 +143,7 @@ body {
   border: 2px;
   border-style: solid;
   border-color: white;
-  margin-bottom: 0;
+
 }
 
 .BeerCard input.create-beer-button {
@@ -185,6 +187,10 @@ body {
     float:none;
 }
 
-.CommentCard {
+li.comment {
+  color: rgb(77, 24, 127);
   font-style: italic;
+  padding: 0px;
+  margin: 0px;
+
 }
