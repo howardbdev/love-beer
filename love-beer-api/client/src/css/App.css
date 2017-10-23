@@ -72,3 +72,9 @@
 .navbar {
   margin-bottom: 30px;
 }
+
+.navlink:hover {
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+}

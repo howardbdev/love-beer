@@ -18,24 +18,28 @@ const activeLink = {
 let Navbar = () =>
   <div className="navbar">
     <NavLink
+      className="navlink"
       to="/"
       exact
       style={link}
       activeStyle={activeLink}
     >Home</NavLink>
     <NavLink
+      className="navlink"
       to="/about"
       exact
       style={link}
       activeStyle={activeLink}
     >About</NavLink>
     <NavLink
+      className="navlink"
       to="/beers/"
       exact
       style={link}
       activeStyle={activeLink}
     >All Beers</NavLink>
     <NavLink
+      className="navlink"
       to="/beers/new"
       exact
       style={link}
@@ -47,8 +51,9 @@ let Navbar = () =>
 export const Home = () => {
   return (
     <div className="title">
-      <h1>Home</h1>
+      <h1>Welcome</h1>
       <h3>Vote or add a beer!!!</h3>
+      <h4>I don't know about you, but this picture makes me thirsty.</h4>
     </div>
   )
 }
@@ -58,6 +63,8 @@ export const About = () => {
     <div className="about">
       <h3>About</h3>
       <p>This is just a fun little website for you to vote on or add your favorite beer!</p>
+      <p>Vote from the index page, or click on a beer to see and add comments.</p>
+      <p>Click on 'New Beer' to add your favorite beer!</p>
   </div>
   )
 }
