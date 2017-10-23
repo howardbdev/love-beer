@@ -5,12 +5,10 @@ import { upvoteBeer, downvoteBeer } from '../actions/beers';
 class VoteForm extends Component {
 
   handleUpvote = (event) => {
-    console.log("this.props is: ", this.props)
       event.preventDefault();
       this.props.upvoteBeer(this.props.beer_id);
     }
   handleDownvote = (event) => {
-    console.log("this.props is: ", this.props)
       event.preventDefault();
       this.props.downvoteBeer(this.props.beer_id);
     }

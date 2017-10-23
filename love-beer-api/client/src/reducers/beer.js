@@ -6,7 +6,7 @@
 //   upvotes: 0,
 // }
 
-export default (state = [], action) => {
+export default (state = {}, action) => {
   switch (action.type) {
     case 'GET_BEER_SUCCESS':
       return action.beer;

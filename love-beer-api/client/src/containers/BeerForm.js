@@ -7,7 +7,6 @@ class BeerForm extends Component {
 
   handleOnChange = event => {
     const { name, value } = event.target;
-    console.log(name)
     const currentBeerFormData = Object.assign({}, this.props.beerFormData, {
         [name]: value
     })

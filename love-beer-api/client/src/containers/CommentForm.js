@@ -6,23 +6,18 @@ import { createComment } from '../actions/comments';
 class CommentForm extends Component {
   handleOnChange = event => {
     const { name, value } = event.target;
-    console.log('event.target is ', event.target)
-    console.log(name)
     const currentCommentFormData = Object.assign({}, this.props.commentFormData, {
         [name]: value,
         beer_id: this.props.beer_id
     })
-    console.log('currentCommentFormData is ',currentCommentFormData)
     this.props.updateCommentFormData(currentCommentFormData)
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createComment(this.props.commentFormData)
-    console.log("in CommentForm submit function, this.props.beer_id is ", this.props.beer_id)
-    console.log("comment from submit fn, this.props is ", this.props)
   }
-  
+
   render() {
     const { content } = this.props.commentFormData;
     return(

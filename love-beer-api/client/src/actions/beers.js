@@ -1,3 +1,4 @@
+import { getComments } from './comments'
 const API_URL = 'http://localhost:3001/api';
 
 // ** ACTION CREATORS **
@@ -17,7 +18,6 @@ export const setBeer = beer => {
 }
 
 export const addBeer = beer => {
-  console.log("addBeer action beer is ", beer)
   return {
     type: 'CREATE_BEER_SUCCESS',
     beer
@@ -103,12 +103,13 @@ export const downvoteBeer = beer_id => {
 }
 
 export const getBeer = (beer_id) => {
-  console.log('IN GETBEER ACTION')
-  console.log("URL is ", `${API_URL}/beers/${beer_id}` )
   return dispatch => {
     return fetch(`${API_URL}/beers/${beer_id}`)
       .then(response => response.json())
-      .then(beer => dispatch(setBeer(beer)))
+      .then(beer => {
+        dispatch(getComments(beer.id))
+        return dispatch(setBeer(beer))
+      })
       .catch(error => console.log(error))
   }
 }
