@@ -10,6 +10,13 @@ export const addComment = comment => {
   }
 }
 
+export const setComments = comments => {
+  return {
+    type: 'SET_COMMENTS_SUCCESS',
+    comments
+  }
+}
+
 // ** ASYNC ACTIONS **
 
 export const createComment = comment => {
@@ -28,5 +35,14 @@ export const createComment = comment => {
        else dispatch(addComment(comment))
      })
     .catch(error => alert(error))
+  }
+}
+
+export const getComments = (beer_id) => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${beer_id}/comments`)
+      .then(response => response.json())
+      .then(comments => dispatch(setComments(comments)))
+      .catch(error => console.log(error))
   }
 }
