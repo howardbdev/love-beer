@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateBeerFormData } from '../actions/beerForm';
-import { createBeer } from '../actions/beers'
+import { createBeer, updateBeer } from '../actions/beers'
+
+let EDIT_STATUS = false;
 
 class BeerForm extends Component {
+
+  componentDidMount() {
+    console.log("CDM",this.props.location.state)
+    if (this.props.location.state) {
+      console.log("CDM",this.props.location.state.current_beer.beer)
+      console.log('YEP')
+      EDIT_STATUS = true;
+      this.props.updateBeerFormData(this.props.location.state.current_beer.beer)
+    } else {
+      console.log("NOPE")
+    }
+  }
 
   handleOnChange = event => {
     const { name, value } = event.target;
@@ -15,14 +29,17 @@ class BeerForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createBeer(this.props.beerFormData, this.props.history)
+    EDIT_STATUS ? this.props.updateBeer(this.props.beerFormData, this.props.history) : this.props.createBeer(this.props.beerFormData, this.props.history)
   }
 
   render() {
+    console.log("Current Beer",this.props.current_beer)
+    console.log("Current props loc",this.props.location.state)
+    console.log("beer form data",this.props.beerFormData)
     const { name, brewer_name, style, description, image_url } = this.props.beerFormData;
     return (
       <div id="BeerForm" className="BeerCard BeerForm">
-        <h2>Add a Beer!</h2>
+        <h2>{EDIT_STATUS ? `Edit Beer Form` : 'Add a New Beer!'}</h2>
         <form action="" onSubmit={this.handleOnSubmit}>
           <div>
             <label htmlFor="name">Name*: </label>
@@ -70,7 +87,7 @@ class BeerForm extends Component {
               onChange={this.handleOnChange}
             /><br/>
           </div>
-          <input type="submit" value="Add Beer" className="create-beer-button"/>
+          <input type="submit" value={EDIT_STATUS ? 'Submit Changes' : 'Add Beer'} className="create-beer-button"/>
           <p className="required-fields-p">*Required fields</p>
         </form>
       </div>
@@ -86,6 +103,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {updateBeerFormData, createBeer})(BeerForm);
-
-// .then(setTimeout(()=>{this.props.history.push('/beers')}, 1000))
+export default connect(mapStateToProps, {updateBeerFormData, createBeer, updateBeer})(BeerForm);

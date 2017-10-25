@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentForm from '../containers/CommentForm'
 import Comments from '../containers/Comments'
+import { Link } from 'react-router-dom'
 
 const BeerShow = ({beer}) => {
 
@@ -14,6 +15,15 @@ const BeerShow = ({beer}) => {
       <CommentForm beer_id={beer.id}/>
       <h4>Comments</h4>
       <Comments comments={beer.comments}/>
+      <p>
+        <Link
+          className='edit-link'
+          id='edit-link'
+          to={{pathname: `/beers/${beer.id}/edit`, state: {current_beer: {beer}}}}
+          >
+            Edit This Beer
+          </Link>
+      </p>
     </div>
 }
 export default BeerShow;

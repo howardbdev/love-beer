@@ -22,6 +22,7 @@ const App = () => {
           <Route exact path="/login" render={Login} />
           <Route exact path="/beers/new" component={BeerForm}/>
           <Route exact path="/beers" component={Beers}/>
+          <Route path="/beers/:id/edit" component={BeerForm} />
           <Route path="/beers/:id" component={Beer} />
         </Switch>
       </div>

@@ -119,6 +119,29 @@ body {
   margin: 2px;
   min-height: 40px;
   min-width: 120px;
+  text-decoration: none
+}
+
+.edit-link {
+  margin-top: 12px;
+  background-color: rgb(254, 228, 184);
+  border: 2px;
+  border-color: rgb(152, 65, 29);
+  border-style: solid;
+  border-radius: 6px;
+  padding: 7px;
+  min-height: 40px;
+  min-width: 120px;
+  text-decoration: none;
+  color: rgb(152, 65, 29);
+}
+
+.edit-link:hover {
+  background-color: rgb(152, 65, 29);
+  border-color: white;
+  border-style: solid;
+  border-width: 3px;
+  color: white;
 }
 
 .BeerCard input.submit-comment-button:hover {

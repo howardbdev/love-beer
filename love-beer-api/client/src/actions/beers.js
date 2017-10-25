@@ -69,6 +69,27 @@ export const createBeer = (beer, history) => {
   }
 }
 
+export const updateBeer = (beer, history) => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${beer.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({beer: beer})
+    })
+    .then(response => response.json())
+    .then(beer => {
+       if (beer.error) { alert(beer.error) }
+       else {
+         history.push(`/beers/${beer.id}`)
+         dispatch(setBeer(beer))
+       }
+     })
+    .catch(error => alert(error))
+  }
+}
+
 export const upvoteBeer = beer_id => {
   return dispatch => {
     return fetch(`${API_URL}/beers/${beer_id}`, {
