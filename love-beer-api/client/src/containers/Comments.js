@@ -4,7 +4,6 @@ import CommentCard from '../components/CommentCard'
 // import { getComments } from '../actions/comments'
 
 const Comments = (props) => {
-console.log("PROPS>COMMNTS", props.comments)
   if (props.comments) {
     const comments = props.comments.map(comment=>
       <CommentCard

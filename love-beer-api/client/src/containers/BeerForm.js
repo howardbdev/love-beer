@@ -8,13 +8,11 @@ let EDIT_STATUS = false;
 class BeerForm extends Component {
 
   componentDidMount() {
-    console.log("FIRST CDM", EDIT_STATUS)
     if (this.props.location.state) {
       EDIT_STATUS = true;
       this.props.updateBeerFormData(this.props.location.state.current_beer.beer)
     } else {
     }
-    console.log("LASST CDM", EDIT_STATUS)
   }
 
   componentWillUnmount() {
@@ -37,8 +35,6 @@ class BeerForm extends Component {
 
   handleDelete = event => {
     event.preventDefault();
-    console.log("delelet event", event)
-    console.log(this.props.beerFormData.id)
     this.props.deleteBeer(this.props.beerFormData.id, this.props.history)
   }
 
