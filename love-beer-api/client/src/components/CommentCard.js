@@ -23,8 +23,8 @@ render() {
           className="upvote-button"
           onClick={this.upVote}
           >
-            Likes {this.props.comment.upvotes}
-          </button>
+          Likes {this.props.comment.upvotes}
+        </button>
         <button
           className="downvote-button"
           onClick={this.downVote}
