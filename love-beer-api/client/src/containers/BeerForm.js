@@ -14,14 +14,8 @@ class BeerForm extends Component {
   }
 
   handleOnSubmit = event => {
-    const l = this.props.beers.length
     event.preventDefault();
-    this.props.createBeer(this.props.beerFormData)
-    setTimeout(()=>{
-      if (l < this.props.beers.length) {
-        this.props.history.push(`/beers/${this.props.beers[this.props.beers.length-1].id}`)
-      }
-    }, 1000)
+    this.props.createBeer(this.props.beerFormData, this.props.history)
   }
 
   render() {

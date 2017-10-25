@@ -16,7 +16,57 @@ export const setComments = comments => {
   }
 }
 
+export const upVoteCommentSuccess = comment => {
+  return {
+    type: 'UPVOTE_COMMENT_SUCCESS',
+    comment
+  }
+}
+
+export const downVoteCommentSuccess = comment => {
+  return {
+    type: 'DOWNVOTE_COMMENT_SUCCESS',
+    comment
+  }
+}
+
 // ** ASYNC ACTIONS **
+
+export const upVoteComment = comment => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${comment.beer_id}/comments/${comment.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({upvotes: 1})
+    })
+    .then(response => response.json())
+    .then(comment => {
+       if (comment.error) { alert(comment.error) }
+       else dispatch(upVoteCommentSuccess(comment))
+     })
+    .catch(error => alert(error))
+  }
+}
+
+export const downVoteComment = comment => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${comment.beer_id}/comments/${comment.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({downvotes: 1})
+    })
+    .then(response => response.json())
+    .then(comment => {
+       if (comment.error) { alert(comment.error) }
+       else dispatch(downVoteCommentSuccess(comment))
+     })
+    .catch(error => alert(error))
+  }
+}
 
 export const createComment = comment => {
   return dispatch => {
@@ -30,7 +80,9 @@ export const createComment = comment => {
     .then(response => response.json())
     .then(comment => {
        if (comment.error) { alert(comment.error) }
-       else dispatch(addComment(comment))
+       else {
+         dispatch(addComment(comment))
+       }
      })
     .catch(error => alert(error))
   }
@@ -43,7 +95,7 @@ export const getComments = (beer_id) => {
       .then(comments => {
         if (comments.error) {
         } else {
-          return dispatch(setComments(comments))
+          dispatch(setComments(comments))
         }
       })
       .catch(error => console.log(error))

@@ -17,7 +17,14 @@ class API::CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
+    cp = comment_params
+    if cp[:upvotes]
+      cp[:upvotes] = @comment.upvotes + 1
+    elsif cp[:downvotes]
+      cp[:downvotes] = @comment.downvotes + 1
+    end
+
+    if @comment.update(cp)
       render json: @comment
     else
       render json: {error: @comment.errors.full_messages.to_sentence}
@@ -35,7 +42,7 @@ class API::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :beer_id)
+    params.require(:comment).permit(:content, :user_id, :beer_id, :upvotes, :downvotes)
   end
 
   def get_comment

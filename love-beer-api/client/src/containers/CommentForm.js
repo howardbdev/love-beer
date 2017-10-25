@@ -57,8 +57,4 @@ const mapStateToProps = state => {
   }
 }
 
-
 export default connect(mapStateToProps, {updateCommentFormData, createComment})(CommentForm);
-
-
-// name="beer-comment-textarea"

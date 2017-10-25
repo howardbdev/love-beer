@@ -1,26 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import CommentCard from '../components/CommentCard'
-import { getComments } from '../actions/comments'
+// import { getComments } from '../actions/comments'
 
-class Comments extends Component {
-
-  render() {
-    const comments = this.props.comments.map(comment=><CommentCard content={comment.content} key={comment.id}/>)
+const Comments = (props) => {
+console.log("PROPS>COMMNTS", props.comments)
+  if (props.comments) {
+    const comments = props.comments.map(comment=>
+      <CommentCard
+        comment={comment}
+        key={comment.id}
+      />)
     return(
       <div>
         {comments}
       </div>
     )
+
   }
+  else {
+    return null;
+  }
+
 }
 
 
 const mapStateToProps = (state) => {
   return ({
+      beer: state.beer,
       comments: state.comments,
-      beer: state.beer
     })
 }
 
-export default connect(mapStateToProps, {getComments})(Comments);
+export default connect(mapStateToProps)(Comments);

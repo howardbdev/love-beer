@@ -48,7 +48,7 @@ export const getBeers = () => {
   }
 }
 
-export const createBeer = beer => {
+export const createBeer = (beer, history) => {
   return dispatch => {
     return fetch(`${API_URL}/beers`, {
       method: "POST",
@@ -60,7 +60,10 @@ export const createBeer = beer => {
     .then(response => response.json())
     .then(beer => {
        if (beer.error) { alert(beer.error) }
-       else dispatch(addBeer(beer))
+       else {
+         history.push(`/beers/${beer.id}`)
+         dispatch(addBeer(beer))
+       }
      })
     .catch(error => alert(error))
   }

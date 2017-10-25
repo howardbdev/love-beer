@@ -13,7 +13,7 @@ const BeerShow = ({beer}) => {
       <p>Votes: {beer.upvotes}</p>
       <CommentForm beer_id={beer.id}/>
       <h4>Comments</h4>
-      <Comments beer_id={beer.id}/>
+      <Comments comments={beer.comments}/>
     </div>
 }
 export default BeerShow;
