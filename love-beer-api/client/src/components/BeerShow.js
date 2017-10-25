@@ -21,7 +21,7 @@ const BeerShow = ({beer}) => {
           id='edit-link'
           to={{pathname: `/beers/${beer.id}/edit`, state: {current_beer: {beer}}}}
           >
-            Edit This Beer
+            Edit or Delete This Beer
           </Link>
       </p>
     </div>

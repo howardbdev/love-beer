@@ -38,7 +38,7 @@ class API::BeersController < ApplicationController
   end
 
   def destroy
-    if @beer  && @beer.delete
+    if @beer && @beer.destroy
       render status: 201
     else
       render json: {error: "There was a problem deleting that beer " + @beer.errors.full_messages.to_sentence}

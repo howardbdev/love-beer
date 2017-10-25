@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateBeerFormData } from '../actions/beerForm';
-import { createBeer, updateBeer } from '../actions/beers'
+import { createBeer, updateBeer, deleteBeer } from '../actions/beers'
 
 let EDIT_STATUS = false;
 
 class BeerForm extends Component {
 
   componentDidMount() {
-    console.log("CDM",this.props.location.state)
+    console.log("FIRST CDM", EDIT_STATUS)
     if (this.props.location.state) {
-      console.log("CDM",this.props.location.state.current_beer.beer)
-      console.log('YEP')
       EDIT_STATUS = true;
       this.props.updateBeerFormData(this.props.location.state.current_beer.beer)
     } else {
-      console.log("NOPE")
     }
+    console.log("LASST CDM", EDIT_STATUS)
+  }
+
+  componentWillUnmount() {
+    EDIT_STATUS = false
   }
 
   handleOnChange = event => {
@@ -29,13 +31,20 @@ class BeerForm extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    EDIT_STATUS ? this.props.updateBeer(this.props.beerFormData, this.props.history) : this.props.createBeer(this.props.beerFormData, this.props.history)
+    EDIT_STATUS ? this.props.updateBeer(this.props.beerFormData, this.props.history) : this.props.createBeer(this.props.beerFormData, this.props.history);
+    EDIT_STATUS=false;
   }
 
+  handleDelete = event => {
+    event.preventDefault();
+    console.log("delelet event", event)
+    console.log(this.props.beerFormData.id)
+    this.props.deleteBeer(this.props.beerFormData.id, this.props.history)
+  }
+
+
+
   render() {
-    console.log("Current Beer",this.props.current_beer)
-    console.log("Current props loc",this.props.location.state)
-    console.log("beer form data",this.props.beerFormData)
     const { name, brewer_name, style, description, image_url } = this.props.beerFormData;
     return (
       <div id="BeerForm" className="BeerCard BeerForm">
@@ -90,6 +99,13 @@ class BeerForm extends Component {
           <input type="submit" value={EDIT_STATUS ? 'Submit Changes' : 'Add Beer'} className="create-beer-button"/>
           <p className="required-fields-p">*Required fields</p>
         </form>
+        { EDIT_STATUS ? <button
+          className='delete-link'
+          onClick={this.handleDelete}
+          >
+            Delete this Beer
+          </button>
+           : null }
       </div>
     )
   }
@@ -103,4 +119,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {updateBeerFormData, createBeer, updateBeer})(BeerForm);
+export default connect(mapStateToProps, {updateBeerFormData, createBeer, updateBeer, deleteBeer })(BeerForm);

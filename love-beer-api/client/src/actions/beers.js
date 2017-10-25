@@ -90,6 +90,23 @@ export const updateBeer = (beer, history) => {
   }
 }
 
+export const deleteBeer = (beer_id, history) => {
+  return dispatch => {
+    return fetch(`${API_URL}/beers/${beer_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": 'application/json'
+      },
+    })
+    .then(resp => {
+      console.log(resp)
+      history.push(`/beers/`)
+
+     })
+    .catch(error => alert(error))
+  }
+}
+
 export const upvoteBeer = beer_id => {
   return dispatch => {
     return fetch(`${API_URL}/beers/${beer_id}`, {
@@ -137,3 +154,8 @@ export const getBeer = (beer_id) => {
       .catch(error => console.log(error))
   }
 }
+
+// if (beer.error) { alert(beer.error) }
+// else {
+//   dispatch(setBeer(beer))
+// }
