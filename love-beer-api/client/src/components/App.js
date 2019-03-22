@@ -4,7 +4,6 @@ import Beer from '../containers/Beer';
 import BeerForm from '../containers/BeerForm';
 import '../css/App.css';
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom'
@@ -12,7 +11,7 @@ import Navbar, { Home, About, Login } from '../components/Navbar';
 
 const App = () => {
   return (
-    <Router>
+
       <div className="App">
         <h1 className="title">Love Beer</h1>
         <Navbar className="navbar"/>
@@ -26,8 +25,10 @@ const App = () => {
           <Route path="/beers/:id" component={Beer} />
         </Switch>
       </div>
-    </Router>
+
   );
 }
 
 export default App;
+// BrowserRouter as Router,
+// return wrapped in <Router>

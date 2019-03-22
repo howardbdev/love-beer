@@ -59,13 +59,13 @@ export const createBeer = (beer, history) => {
     })
     .then(response => response.json())
     .then(beer => {
-       if (beer.error) { alert(beer.error) }
+       if (beer.error) { alert("YOUR ERROR:" + beer.error) }
        else {
          history.push(`/beers/${beer.id}`)
          dispatch(addBeer(beer))
        }
      })
-    .catch(error => alert(error))
+    .catch(error => {debugger;alert("whaaaaa" + error)})
   }
 }
 
