@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 
 const BeerCard = (props) => {
-  console.log(props.get)
     const url =`/beers/${props.beer.id}`
     return <div className="BeerCard">
       <NavLink

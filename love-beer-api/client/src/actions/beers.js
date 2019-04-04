@@ -1,9 +1,12 @@
+// ACTIONS - actions/beers.js
+
 import { getComments } from './comments'
 const API_URL = 'http://localhost:3001/api';
 
 // ** ACTION CREATORS **
 
 export const setBeers = beers => {
+  console.log("in action creator setBeers, about to return GET_BEERS_SUCCESS")
   return {
     type: 'GET_BEERS_SUCCESS',
     beers,
@@ -41,6 +44,7 @@ export const downvoteBeerClientSide = beer_id => {
 // ** ASYNC ACTIONS **
 export const getBeers = () => {
   return dispatch => {
+    console.log("LOADING....")
     return fetch(`${API_URL}/beers`)
       .then(response => response.json())
       .then(beers => dispatch(setBeers(beers)))

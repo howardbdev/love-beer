@@ -18,44 +18,35 @@ class Beers extends Component {
   }
 
   handleClick = () => {
-    const newOrder = this.state.sortOrder === "votes" ? "alpha" : "votes"
+    const newOrder = this.state.sortOrder === "upvotes" ? "name" : "upvotes"
     this.setState({
       sortOrder: newOrder
-    }, () => {
-      console.log("new state is: ", this.state, "sorted array is", this.sortAlphabetically(),
-    "sorted by votes", this.sortByVotes())
     })
   }
 
-  sortAlphabetically = () => {
-    return this.props.beers.slice().sort((a, b) => {
-      const nameA = a.name
-      const nameB = b.name
-
-      if (nameA < nameB) { return -1 }
-      if (nameA > nameB) { return 1 }
-      return 0
-    })
+  compare = sortProp => (a, b) => {
+    if (a[sortProp] < b[sortProp]) { return sortProp !== 'upvotes' ? -1 : 1 }
+    if (a[sortProp] > b[sortProp]) { return sortProp !== 'upvotes' ? 1 : -1 }
+    return 0
   }
-
-  sortByVotes = () => this.props.beers.slice().sort((a,b) => b.upvotes - a.upvotes)
 
   render() {
-
-    const sortedBeers = this.state.sortOrder === "votes" ? this.sortByVotes() : this.sortAlphabetically()
+    console.log("RENDERING Beers component!  ")
+    const buttonText = this.state.sortOrder === "upvotes" ? "Sort By Name" : "Sort by Upvotes"
+    const sortedBeers = this.props.beers.slice().sort(this.compare(this.state.sortOrder))
 
     return (
       <div>
         <div>
           <button
             onClick={this.handleClick}
-          >Toggle Sort
+          >{ buttonText }
           </button>
         </div>
-        {sortedBeers.map((beer, index) => <BeerCard
+        { sortedBeers.map((beer, index) => <BeerCard
           beer={beer}
           key={index}
-        />)}
+        />) }
       </div>
     );
   }

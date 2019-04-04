@@ -20,10 +20,15 @@ class BeerForm extends Component {
   }
 
   handleOnChange = event => {
-    const { name, value } = event.target;
+    // this code ...
+    const name = event.target.name
+    const value = event.target.value
+    // and the commented-out code below, are equivalent in what they do
+    // const { name, value } = event.target;
     const currentBeerFormData = Object.assign({}, this.props.beerFormData, {
         [name]: value
     })
+    console.log(currentBeerFormData)
     this.props.updateBeerFormData(currentBeerFormData)
   }
 
@@ -110,9 +115,15 @@ class BeerForm extends Component {
 const mapStateToProps = state => {
   return {
     beerFormData: state.beerFormData,
-    beers: state.beers
+    // beers: state.beers
   }
 }
 
+const mapDispatchToPropsObject = {
+  updateBeerFormData: updateBeerFormData,
+  createBeer: createBeer,
+  updateBeer: updateBeer,
+  deleteBeer: deleteBeer
+}
 
-export default connect(mapStateToProps, {updateBeerFormData, createBeer, updateBeer, deleteBeer })(BeerForm);
+export default connect(mapStateToProps, mapDispatchToPropsObject)(BeerForm);

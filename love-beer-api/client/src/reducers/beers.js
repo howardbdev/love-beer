@@ -1,8 +1,11 @@
+// REDUCER - reducers/beers
+
 export default (state = [], action) => {
   let index;
   let beer;
   switch (action.type) {
     case 'GET_BEERS_SUCCESS':
+      console.log("in reducers/beers/GET_BEERS_SUCCESS")
       return action.beers;
     case 'CREATE_BEER_SUCCESS':
       return state.concat(action.beer);
