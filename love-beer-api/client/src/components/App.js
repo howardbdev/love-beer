@@ -7,7 +7,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom'
-import Navbar, { Home, About, Login } from '../components/Navbar';
+import Navbar, { Home, About } from '../components/Navbar';
 
 const App = () => {
   return (
@@ -18,7 +18,6 @@ const App = () => {
         <Switch>
           <Route exact path="/" render={Home} />
           <Route exact path="/about" render={About} />
-          <Route exact path="/login" render={Login} />
           <Route exact path="/beers/new" component={BeerForm}/>
           <Route exact path="/beers" component={Beers}/>
           <Route path="/beers/:id/edit" component={BeerForm} />
