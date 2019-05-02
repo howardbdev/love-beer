@@ -54,7 +54,7 @@ class Beers extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-      beers: state.beers,
+      beers: state.beers
     })
 }
 
